@@ -4,7 +4,7 @@ pipeline{
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
-                KUBECONFIG = credentials('secret')
+                KUBECONFIG = credentials('Jenkins_ServiceAccount')
 	}
 
 	stages {
