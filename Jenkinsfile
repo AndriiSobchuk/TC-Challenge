@@ -4,7 +4,7 @@ pipeline{
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
-                KUBECONFIG = credentials('kubeconfig')
+                KUBECONFIG = credentials('secret')
 	}
 
 	stages {
