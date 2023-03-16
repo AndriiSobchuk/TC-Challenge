@@ -4,6 +4,7 @@ pipeline{
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+                KUBECONFIG = credentials('kubeconfig')
 	}
 
 	stages {
@@ -28,6 +29,12 @@ pipeline{
 				sh 'docker push andriisobchuk/march-test:latest'
 			}
 		}
+                stage('Deploy to Kubernetes') {
+                        steps {
+                                withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
+                                sh 'kubectl --kubeconfig=$KUBECONFIG apply -f myrepo/deployment.yaml'
+                        }
+                }
 	}
 
 	post {
