@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   my-app:
-    image: java-test:latest
+    image: java-test:latest # to use remote  image, please, set  andriisobchuk/tc-assessment:latest
     ports:
       - "8080:8080"
     restart: always
