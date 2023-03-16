@@ -1,0 +1,6 @@
+.git
+target
+k8s-deployment
+mvnw
+mvnw.cmd
+
