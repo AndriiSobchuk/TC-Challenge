@@ -33,6 +33,7 @@ pipeline{
                         steps {
                                 withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
                                 sh 'kubectl --kubeconfig=$KUBECONFIG apply -f myrepo/deployment.yaml'
+                              }
                         }
                 }
 	}
