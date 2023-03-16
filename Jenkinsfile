@@ -12,7 +12,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t andriisobchuk/march-test:latest .'
+				sh 'docker build -t andriisobchuk/tc-assessment:latest .'
 			}
 		}
 
@@ -26,7 +26,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push andriisobchuk/march-test:latest'
+				sh 'docker push andriisobchuk/tc-assessment:latest'
 			}
 		}
                 stage('Deploy to Kubernetes') {
