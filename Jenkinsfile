@@ -4,7 +4,7 @@ pipeline{
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
-                KUBECONFIG = credentials('kubeconfig')
+                KUBECONFIG = credentials('Jenkins_ServiceAccount')
 	}
 
 	stages {
@@ -31,7 +31,7 @@ pipeline{
 		}
                 stage('Deploy to Kubernetes') {
                         steps {
-                                withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
+                                withCredentials([file(credentialsId: 'Jenkins_ServiceAccount', variable: 'KUBECONFIG')]) {
                                 sh 'kubectl --kubeconfig=$KUBECONFIG apply -f myrepo/deployment.yaml'
                               }
                         }
