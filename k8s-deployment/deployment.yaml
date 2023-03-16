@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: march-test-deployment
+  name: tc-assesment-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: march-test
+      app: tc
   template:
     metadata:
       labels:
-        app: march-test
+        app: tc
     spec:
       containers:
-      - name: march-test-container
+      - name: tc-container
         image: andriisobchuk/march-test
         ports:
         - containerPort: 8080
@@ -21,10 +21,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: march-test-service
+  name: tc-service
 spec:
   selector:
-    app: march-test
+    app: tc
   ports:
   - name: http
     port: 80
