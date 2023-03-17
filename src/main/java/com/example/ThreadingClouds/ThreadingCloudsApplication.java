@@ -18,7 +18,7 @@ public class ThreadingCloudsApplication {
 
     @GetMapping("/")
     public String hello() {
-        return "Hello world";
+        return "Hello world!";
     }
 
     @Scheduled(fixedDelay = 60000)
