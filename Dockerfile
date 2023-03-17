@@ -12,7 +12,7 @@ COPY src ./src
 RUN mvn package
 
 # Run stage
-FROM openjdk:17-jdk-slim
+FROM openjdk:17-jre-slim-buster
 # Set the working directory to /app
 WORKDIR /app
 # Copy the JAR file from the build stage to the container
